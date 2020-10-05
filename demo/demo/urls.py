@@ -24,6 +24,9 @@ urlpatterns = [
     path('', include('helloWorld.urls')),
     path('login/', include('login.urls')),
     path('forms/', include('django_Forms.urls')),
+    path('dataTable/', include('dataTable.urls')),
+    path('filterData/', include('filterData.urls')),
+
 
 ]
 

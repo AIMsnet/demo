@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'helloWorld',
     'login',
     'django_Forms',
+    'dataTable',
+    'filterData',
     'crispy_forms',
 ]
 

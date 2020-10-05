@@ -1,0 +1,130 @@
+1. Python3
+
+To install Python on your machine go to https://python.org/downloads/ .
+
+2. PIP
+
+
+3. Virtual Environment
+
+Install virtual Environment
+..\>py -m pip install --user virtualenv
+
+To create a virtual environment for your project, open a new command prompt, navigate to the folder where you want to create your project and then enter the following:
+...\> py -m venv project-name
+
+
+4. Activate
+This will create a folder called ‘project-name’ if it does not already exist and setup the virtual environment. To activate the environment, run:
+
+...\> project-name\Scripts\activate.bat
+
+
+5. Django
+In the command prompt, ensure your virtual environment is active, and execute the following command:
+...\> py -m pip install Django
+
+This will download and install the latest Django release.
+
+to check version:
+...\> py -m django --version
+
+
+6. Create Project
+
+From the command line, cd into a directory where you’d like to store your code, then run the following command:
+...\> django-admin startproject mysite
+
+Let’s look at what startproject created:
+
+mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+
+These files are:
+
+The outer mysite/ root directory is a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
+
+manage.py: A command-line utility that lets you interact with this Django project in various ways. You can read all the details about manage.py in django-admin and manage.py.
+The inner mysite/ directory is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. mysite.urls).
+
+mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. If you’re a Python beginner, read more about packages in the official Python docs.
+
+mysite/settings.py: Settings/configuration for this Django project. Django settings will tell you all about how settings work.
+
+mysite/urls.py: The URL declarations for this Django project; a “table of contents” of your Django-powered site. You can read more about URLs in URL dispatcher.
+
+mysite/asgi.py: An entry-point for ASGI-compatible web servers to serve your project. See How to deploy with ASGI for more details.
+
+mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
+
+
+
+7. Run Django servers
+
+Let’s verify your Django project works. Change into the outer mysite directory, if you haven’t already, and run the following commands:
+
+...\> py manage.py runserver
+
+
+
+8. Create app
+To create your app, make sure you’re in the same directory as manage.py and type this command:
+
+...\> py manage.py startapp polls
+
+That’ll create a directory polls, which is laid out like this:
+
+polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+
+
+
+9. Database Connections
+Go to mysite/settings.py , inside settings.py  in Database section you will see
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}
+
+When connecting to other database backends, such as MariaDB, MySQL, Oracle, or PostgreSQL, additional connection parameters will be required. 
+See the ENGINE setting below on how to specify other database types. This example is for MySQL:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+10. Migrate your database.
+go to your commond prompt
+
+...\> py manage.py makemigrations
+
+...\> py manage.py Migrate
+
+Running these commonds django will create number of tables in your database
+
+
+
+
