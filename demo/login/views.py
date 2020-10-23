@@ -2,9 +2,11 @@ from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import login, authenticate
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import user_passes_test
 # Create your views here.
 
 class userLogin(auth_views.LoginView):    
@@ -26,7 +28,7 @@ def signup(request):
         # password = form.cleaned_data.get('password1')
         # user = authenticate(username=username, password=password)
         # login(request, user)
-        messages.SUCCESS("User Created Successfully, You Can Login Now. ")
+        # messages.SUCCESS(request, "User Created Successfully, You Can Login Now. ")
         return redirect('/login/')
     return render(request, 'signup.html', {'form': form})
 
@@ -42,3 +44,8 @@ def welcomePage(request):
     if request.session.has_key('username'):
         return render(request, "welcome.html")
     return redirect("/login/")
+
+@user_passes_test(lambda u: u.is_active and u.is_superuser)
+def usersView(request):
+    users   =   User.objects.all()
+    return render(request, "users.html", {'users' : users})

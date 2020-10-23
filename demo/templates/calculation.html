@@ -1,0 +1,47 @@
+{% extends "home.html" %}
+{% block content %}
+<div class="container">
+    <h3>Addition</h3>
+    <body class="" style="height: 550px;">
+        <form class="my-3" action="/add/" method="post">
+            {% csrf_token %}
+            <input type="text" name="val1" id="val1" required>
+            <input type="text" name="val2" id="val2" required>
+            <input type="submit" value="ADD">
+
+            <h5>Result : {{add}}</h5>
+        </form>
+
+        <h3>Substraction</h3>
+        <form class="my-3" action="/sub/" method="post">
+            {% csrf_token %}
+            <input type="text" name="val3" id="val3" required>
+            <input type="text" name="val4" id="val4" required>
+            <input type="submit" value="SUB">
+
+            <h5>Result : {{sub}}</h5>
+        </form>
+
+        <h3>Multiplication</h3>
+        <form class="my-3" action="/multiply/" method="post">
+            {% csrf_token %}
+            <input type="text" name="val3" id="val3" required>
+            <input type="text" name="val4" id="val4" required>
+            <input type="submit" value="MULTIPLY">
+
+            <h5>Result : {{multiplication}}</h5>
+        </form>
+
+        <h3>Division</h3>
+        <form class="my-3" action="/div/" method="post">
+            {% csrf_token %}
+            <input type="text" name="val3" id="val3" required>
+            <input type="text" name="val4" id="val4" required>
+            <input type="submit" value="DIV">
+
+            <h5>Result : {{div}}</h5>
+        </form>
+    </body>
+</div>
+{% endblock %}
+</html>

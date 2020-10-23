@@ -47,7 +47,7 @@ def update_View(request):
             clientUpdate = Client.objects.get(cmobno = form.cleaned_data['cmobno'])
             clientUpdate.cname = form.cleaned_data['cname']
             clientUpdate.cmobno = form.cleaned_data['cmobno']
-            clientUpdate.address = form.cleaned_data['cmobno']
+            clientUpdate.address = form.cleaned_data['address']
             clientUpdate.pincode = form.cleaned_data['pincode']
             clientUpdate.save()
 

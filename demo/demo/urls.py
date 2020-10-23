@@ -26,7 +26,8 @@ urlpatterns = [
     path('forms/', include('django_Forms.urls')),
     path('dataTable/', include('dataTable.urls')),
     path('filterData/', include('filterData.urls')),
-
+    path('orm/', include('ORM.urls')),
+    path('existingDB/', include('existingDB.urls')),
 
 ]
 

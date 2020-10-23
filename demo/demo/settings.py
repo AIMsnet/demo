@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django_Forms',
     'dataTable',
     'filterData',
+    'ORM',
+    'existingDB',
     'crispy_forms',
 ]
 
@@ -93,7 +95,14 @@ DATABASES = {
         'PASSWORD':'root',
         'HOST': 'localhost',
         # 'PORT': '3306',
-    }
+    },
+    # 'users': {
+    #     'NAME': 'imdb',
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'USER': 'root',
+    #     'PASSWORD': 'root',
+    #     'HOST': 'localhost',
+    # },
 }
 
 
@@ -121,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -144,3 +153,5 @@ STATIC_ROOT =   os.path.join(BASE_DIR, 'assets')
 MEDIA_URL   =   '/media/'
 
 MEDIA_ROOT =    os.path.join(BASE_DIR, 'media')
+
+# AUTH_USER_MODEL = 'login.User'

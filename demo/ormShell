@@ -1,0 +1,44 @@
+1.Django shell
+    Open up your local console (not on PythonAnywhere) and type this command:
+
+    command-line:
+    (myvenv)  C:\Users\aimcomp7\demo>  python manage.py shell
+
+    The effect should be like this:
+
+    command-line:
+    (InteractiveConsole)
+    >>>
+
+    You're now in Django's interactive console. It's just like the Python prompt. 
+    You can use all the Python commands here too.
+
+2. All objects
+    Let's try to display all of our Author first. You can do that with the following command:
+
+    >>> from ORM.models import Author
+
+    We import the model Post from ORM.models. Let's try displaying all Author:
+
+    command-line:
+    >>> Author.objects.all()
+    <QuerySet [<Author: P.  L. Deshpande>, <Author: Chetan Bhagat>, <Author: Rabindranath Tagore>, <Author: Neel Mukharjee>, <Author: Ruskin Bond>]>
+
+    This is a list of the posts we created earlier! We created these posts using the Django admin interface.
+
+    command-line:
+    >>> Book.objects.all()
+    <QuerySet [<Book: One Indian Girl>, <Book: The Secret>, <Book: Untouchable>, <Book: The Room On The Roof>, <Book: The White Tiger>]>
+
+
+3. Filter objects
+    >>> Book.objects.filter(author=2)
+    <QuerySet [<Book: One Indian Girl>, <Book: The Secret>, <Book: The Room On The Roof>]
+
+
+
+4 Close shell:
+    Cool! You're now ready for the next part! To close the shell, type this:
+     
+    command-line:
+    >>> exit()
